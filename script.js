@@ -308,16 +308,11 @@ function setupPwaInstallButton() {
         return;
     }
 
-    installAppBtn.disabled = true;
-    installAppBtn.classList.add('install-disabled');
+    installAppBtn.disabled = false;
+    installAppBtn.classList.remove('install-disabled');
     installAppBtn.title = 'Install this site as an app when available.';
 
     installAppBtn.addEventListener('click', async () => {
-        if (installAppBtn.disabled) {
-            alert('Install option is not yet available. Please open this site in a supported browser or refresh after interacting with the page.');
-            return;
-        }
-
         if (deferredPrompt) {
             console.log('PWA Logic: Prompting user to install.');
             deferredPrompt.prompt();
@@ -329,7 +324,7 @@ function setupPwaInstallButton() {
             installAppBtn.innerText = 'App Installed';
         } else {
             console.log('PWA Logic: deferredPrompt is null, cannot prompt.');
-            alert('Install option is not yet available. Please interact with the site and reload, or use your browser install menu.');
+            alert('This browser does not support the automatic install prompt. Use your browser menu or Add to Home Screen option to install the app.');
         }
     });
 
@@ -1012,7 +1007,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js')
+            navigator.serviceWorker.register('/sw.js')
                 .then(reg => console.log('PWA Logic: Service Worker Registered Successfully', reg))
                 .catch(err => console.error('PWA Logic: Service Worker Registration Failed', err));
         });
