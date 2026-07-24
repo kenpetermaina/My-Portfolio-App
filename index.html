@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Ken Maina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a73e8">
+    <link rel="stylesheet" href="style.css?v=20260724">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body class="no-scroll">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <canvas id="splash-particles"></canvas>
+        <div class="splash-card reveal">
+            <div class="splash-logo-container">
+                <div class="tech-logo">
+                    <div class="logo-orbit orbit-1"></div>
+                    <div class="logo-orbit orbit-2"></div>
+                    <div class="logo-orbit orbit-3"></div>
+                    <i class="fas fa-microchip"></i>
+                    <div class="logo-pulse"></div>
+                    <div class="logo-scanner"></div>
+                </div>
+            </div>
+            <h1 id="dynamic-greeting">Ken Maina</h1>
+            <p data-i18n="splash-subtitle">IT Manager & Full-Stack Developer</p>
+
+            <div class="loading-container">
+                <div class="loading-text"><span id="loading-perc">0</span>%</div>
+                <div class="loading-bar-bg">
+                    <div id="loading-bar-fill"></div>
+                </div>
+                <p class="loading-status" data-i18n="loading-sys">Initializing Systems...</p>
+            </div>
+
+            <div class="splash-btns" style="display: none; margin-top: 20px; gap: 15px; justify-content: center;">
+                <button id="get-started-btn" class="btn" data-i18n="btn-started">Get Started</button>
+                <button id="install-app-btn" class="btn btn-outline" style="display: none;" data-i18n="btn-app">Install
+                    App</button>
+            </div>
+        </div>
+    </div>
+    <div id="scroll-progress"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-microchip"></i> Ken | <span>Maina</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home" data-i18n="nav-home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about" data-i18n="nav-about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#services" data-i18n="nav-services"><i class="fas fa-tools"></i> Services</a></li>
+                    <li><a href="#portfolio" data-i18n="nav-projects"><i class="fas fa-briefcase"></i> Portfolio</a>
+                    </li>
+                    <li><a href="#experience" data-i18n="nav-experience"><i class="fas fa-graduation-cap"></i>
+                            Experience</a></li>
+                    <li><a href="#contact" data-i18n="nav-contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="lang-switch">
+                    <span class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</span>
+                    <span class="lang-btn" id="lang-sw" onclick="setLanguage('sw')">SW</span>
+                </div>
+                <div class="theme-switch" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="particles-canvas"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hiring-badge hero-badge reveal">
+                    <span class="pulse"></span>
+                    <span data-i18n="hiring-status">Available for Work</span>
+                </div>
+                <h1 class="scramble" data-i18n="hero-title">Engineering IT Solutions</h1>
+                <p data-i18n="hero-desc">I'm a passionate IT engineer specializing in cloud infrastructure,
+                    cybersecurity, and software
+                    development.</p>
+                <div class="hero-btns">
+                    <a href="https://janno.tiiny.site" class="btn" data-i18n="hero-btn-work"><i class="fas fa-eye"></i>
+                        View My Work</a>
+                    <a href="#" class="btn btn-outline cv-btn" data-i18n="btn-cv"><i class="fas fa-download"></i>
+                        Download CV</a>
+                    <button id="install-app-btn" class="btn btn-outline" style="display: none;" data-i18n="btn-app"><i class="fas fa-download"></i> Install App</button>
+                    <a href="#contact" class="btn btn-outline" data-i18n="hero-btn-contact"><i
+                            class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="Gemini_Gener...q044I0q0.png" alt="IT Engineering">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">`
+                <h2 class="scramble" data-i18n="about-title">About Me</h2>
+                <p data-i18n="about-subtitle">Learn more about my skills, experience, and professional background</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>I'm Ken Maina - <span>Engineering IT</span></h2>
+                    <p>With over 3 years of experience in the IT engineering field, I specialize in designing,
+                        implementing, and maintaining robust technology solutions for businesses of all sizes.</p>
+
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span><i class="fas fa-cloud"></i> Web Development</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span><i class="fas fa-lock"></i> Cybersecurity</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span><i class="fas fa-terminal"></i> Software Development</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span><i class="fas fa-network-wired"></i> Network Infrastructure</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Gemini_Gener...q044I0q0.png" alt="Professional Photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 class="scramble" data-i18n="services-title">My Services</h2>
+                <p data-i18n="services-subtitle">I provide a wide range of IT solutions tailored to your business needs
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Design and implementation of scalable cloud infrastructure using AWS, Azure, and Google Cloud
+                        Platform.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Comprehensive security assessments, vulnerability management, and implementation of security
+                        protocols.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Software Development</h3>
+                    <p>Custom application development using modern frameworks and programming languages.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Infrastructure</h3>
+                    <p>Design, implementation, and optimization of secure and reliable network architectures.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Database design, optimization, and management for high-performance applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>IT Consulting</h3>
+                    <p>Strategic technology consulting to align IT solutions with business objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 class="scramble" data-i18n="nav-projects">Portfolio</h2>
+                <p data-i18n="portfolio-subtitle">Explore my recent projects and technical implementations</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cloud">Cloud</button>
+                <button class="filter-btn" data-filter="security">Security</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Portfolio items will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Full-Stack PWA Section -->
+    <section class="section pwa-showcase" id="pwa-apps">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 data-i18n="pwa-title">Full-Stack PWA Applications</h2>
+                <p data-i18n="pwa-subtitle">Advanced Progressive Web Apps designed for efficiency, offline access, and
+                    professional management.</p>
+            </div>
+
+            <div class="pwa-grid">
+                <!-- App 1 -->
+                <div class="pwa-card reveal">
+                    <span class="pwa-status status-private">Private System</span>
+                    <div class="pwa-header">
+                        <div class="pwa-icon"><i class="fas fa-hospital"></i></div>
+                        <h3 data-i18n="pwa-app1-title">Hospital Management</h3>
+                    </div>
+                    <img src="app1.png" alt="Hospital App" class="pwa-screenshot"
+                        onerror="this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    <div class="pwa-info">
+                        <h3 data-i18n="pwa-app1-title">Hospital Management</h3>
+                        <p data-i18n="pwa-app1-desc">A complete healthcare solution for patient records, appointment
+                            scheduling, and staff management.</p>
+                    </div>
+                    <div class="pwa-tech">
+                        <span class="tech-badge">PYTHON</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">ReactJs</span>
+                    </div>
+                    <a href="javascript:void(0)" class="pwa-btn" onclick="openPwaModal('Hospital Management System')"
+                        data-i18n="btn-details"><i class="fas fa-info-circle"></i> View Details</a>
+                </div>
+
+                <!-- App 2 -->
+                <div class="pwa-card reveal">
+                    <span class="pwa-status status-demo">Demo Available</span>
+                    <div class="pwa-header">
+                        <div class="pwa-icon"><i class="fas fa-school"></i></div>
+                        <h3 data-i18n="pwa-app2-title">School Management</h3>
+                    </div>
+                    <img src="app2.png" alt="School App" class="pwa-screenshot"
+                        onerror="this.src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    <div class="pwa-info">
+                        <h3 data-i18n="pwa-app2-title">School Management</h3>
+                        <p data-i18n="pwa-app2-desc">Centralized platform for student data, attendance, grading, and
+                            administrative workflows.</p>
+                    </div>
+                    <div class="pwa-tech">
+                        <span class="tech-badge">PYTHON</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">ReactJs</span>
+                    </div>
+                    <a href="javascript:void(0)" class="pwa-btn" onclick="openPwaModal('School Management System')"
+                        data-i18n="btn-demo"><i class="fas fa-play-circle"></i> Request Demo</a>
+                </div>
+
+                <!-- App 3 -->
+                <div class="pwa-card reveal">
+                    <span class="pwa-status status-private">Private System</span>
+                    <div class="pwa-header">
+                        <div class="pwa-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 data-i18n="pwa-app3-title">Data Analytics Dashboard</h3>
+                    </div>
+                    <img src="app3.png" alt="Analytics App" class="pwa-screenshot" onerror="this.src='data.jpg'">
+                    <div class="pwa-info">
+                        <h3 data-i18n="pwa-app3-title">Data Analytics</h3>
+                        <p data-i18n="pwa-app3-desc">Real-time data visualization and processing dashboard for complex
+                            business insights and metrics.</p>
+                    </div>
+                    <div class="pwa-tech">
+                        <span class="tech-badge">PYTHON</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">ReactJs</span>
+                    </div>
+                    <a href="javascript:void(0)" class="pwa-btn"
+                        onclick="openPwaModal('Data Analytics Dashboard System')" data-i18n="btn-details"><i
+                            class="fas fa-chart-pie"></i> View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for PWA Details -->
+    <div id="pwaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePwaModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-img-container">
+                        <img id="modalMainImg" src="" alt="">
+                    </div>
+                    <div class="thumbnails" id="modalThumbnails"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <div class="modal-description" id="modalDesc"></div>
+                    <div class="modal-tech-stack">
+                        <h3>Tech Stack</h3>
+                        <div class="tech-chips" id="modalTechChips"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" id="projectLiveLink" class="btn" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" id="projectRepoLink" class="btn btn-outline" target="_blank"><i
+                                class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="nav-experience">Work Experience</h2>
+                <p data-i18n="exp-subtitle">My professional journey and career milestones</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2026 - Present</span>
+                        <h3><i class="fas fa-building"></i> Senior IT Engineer</h3>
+                        <h4>KenFastTech</h4>
+                        <p>Delivering innovative web development, IT support, and 
+                            technology solutions that help businesses grow.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3><i class="fas fa-sitemap"></i> IT Systems Architect</h3>
+                        <h4>KenFastTech</h4>
+                        <p>Designed and implemented scalable network infrastructure supporting 10,000+ users. Developed
+                            custom software solutions that improved operational efficiency by 30%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - 2026</span>
+                        <h3><i class="fas fa-user-shield"></i> Network Security Specialist-Student</h3>
+                        <h4>Secure Systems Ltd.</h4>
+                        <p>Implemented comprehensive security frameworks and conducted vulnerability assessments.
+                            Reduced security breaches by 90% through proactive monitoring and response protocols.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 - 2026</span>
+                        <h3><i class="fas fa-code-branch"></i> Junior IT Engineer-Attachment</h3>
+                        <h4>Context Experts-Agencies</h4>s
+                        <p>Supported IT infrastructure for small to medium businesses. Developed foundational skills in
+                            network administration, system troubleshooting, and client support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="50">0</div>
+                    <p data-i18n="stats-projects">Projects Done</p>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="3">0</div>
+                    <p data-i18n="stats-exp">Years Experience</p>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="20">0</div>
+                    <p data-i18n="stats-clients">Happy Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 data-i18n="testi-title">Testimonials</h2>
+                <p data-i18n="testi-subtitle">What people say about my work</p>
+            </div>
+            <div class="testimonials-slider-container">
+                <div class="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Ken Maina transformed our IT infrastructure. Highly professional and efficient."</p>
+                        <div class="testi-author">
+                            <h4>Brian Wanyonyi</h4>
+                            <span>Lecturer, Kabete</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Excellent work on our cybersecurity framework. We feel much safer now."</p>
+                        <div class="testi-author">
+                            <h4>Raymond Njoroge</h4>
+                            <span>Network Engineer, Quick fix agencies</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"A highly skilled developer with a deep understanding of PWA and cloud architecture."</p>
+                        <div class="testi-author">
+                            <h4>Stephen Ngunjiri</h4>
+                            <span>CEO, Context Experts-agencies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/+254113381186" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-ping"></span>
+    </a>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+                <p data-i18n="faq-subtitle">Common questions about my services</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3 data-i18n="faq-q1">What services do you offer?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq-a1">I offer cloud migration, cybersecurity assessments, and custom software
+                            development.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3 data-i18n="faq-q2">Are you available for freelance?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq-a2">Yes, I am currently available for new projects and collaborations.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        <h3 data-i18n="faq-q3">How can I contact you?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq-a3">You can reach me via the contact form below or through my WhatsApp and
+                            LinkedIn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="nav-contact">Contact Me</h2>
+                <p data-i18n="contact-subtitle">Let's discuss how I can help with your engineering IT needs</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-i18n="contact-info-title">Get In Touch</h3>
+                    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_u25cckyh.json"
+                        background="transparent" speed="1" style="width: 150px; height: 150px; margin: 0 auto;" loop
+                        autoplay></lottie-player>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>020 kirinyaga- Kenya</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+254113381186</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>Kenp7145@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a
+                            href="https://www.linkedin.com/in/ken-peter-b0419b316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/kenpetermaina"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/kennie.maina.2025"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/+254113381186"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form name="contact" netlify>
+                        <p>
+                            <label><span data-i18n="placeholder-name">Name</span> <input type="text"
+                                    name="name" /></label>
+                        </p>
+                        <p>
+                            <label><span data-i18n="placeholder-email">Email</span> <input type="email"
+                                    name="email" /></label>
+                        </p>
+                        <p>
+                            <button type="submit" class="btn btn-contact" data-i18n="btn-send">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer-rights"><i class="fas fa-copyright"></i> 2026 Engineering IT . All Rights Reserved.
+                </p>
+                <p><span data-i18n="footer-designed"><i class="fas fa-heart"></i> Designed by</span> <span><a
+                            href="https://janno.tiiny.site">KenfastTech
+                            Tech</a></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js?v=20260724"></script>
+</body>
+
+</html>
