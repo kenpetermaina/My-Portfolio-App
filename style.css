@@ -1829,11 +1829,12 @@ footer {
     color: white;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 10px 20px rgba(26, 115, 232, 0.22);
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    opacity: 0.5;
 }
 
 #install-app-btn:hover {
@@ -1844,6 +1845,17 @@ footer {
 
 #install-app-btn i {
     font-size: 1rem;
+}
+
+#install-app-btn.install-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+#install-app-btn:disabled {
+    background: linear-gradient(135deg, #8ab4f8, #a3c2ff);
+    color: rgba(255,255,255,0.8);
 }
 
 .splash-btns {

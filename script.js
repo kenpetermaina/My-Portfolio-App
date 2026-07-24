@@ -278,15 +278,27 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     if (installAppBtn) {
-        installAppBtn.style.display = 'inline-block';
-        console.log('PWA Logic: Install button shown.');
+        showInstallButton();
+        console.log('PWA Logic: Install button enabled.');
     }
 });
 
 window.addEventListener('appinstalled', (evt) => {
     console.log('PWA Logic: App was installed.');
-    if (installAppBtn) installAppBtn.style.display = 'none';
+    if (installAppBtn) {
+        installAppBtn.disabled = true;
+        installAppBtn.classList.add('install-disabled');
+        installAppBtn.innerText = 'App Installed';
+    }
 });
+
+function showInstallButton() {
+    if (!installAppBtn) return;
+    installAppBtn.disabled = false;
+    installAppBtn.classList.remove('install-disabled');
+    installAppBtn.style.opacity = '1';
+    installAppBtn.style.display = 'inline-flex';
+}
 
 function setupPwaInstallButton() {
     installAppBtn = document.getElementById('install-app-btn');
@@ -296,17 +308,25 @@ function setupPwaInstallButton() {
         return;
     }
 
-    installAppBtn.style.display = 'inline-flex';
+    installAppBtn.disabled = true;
+    installAppBtn.classList.add('install-disabled');
     installAppBtn.title = 'Install this site as an app when available.';
 
     installAppBtn.addEventListener('click', async () => {
+        if (installAppBtn.disabled) {
+            alert('Install option is not yet available. Please open this site in a supported browser or refresh after interacting with the page.');
+            return;
+        }
+
         if (deferredPrompt) {
             console.log('PWA Logic: Prompting user to install.');
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
             console.log(`PWA Logic: User response: ${outcome}`);
             deferredPrompt = null;
-            installAppBtn.style.display = 'none';
+            installAppBtn.disabled = true;
+            installAppBtn.classList.add('install-disabled');
+            installAppBtn.innerText = 'App Installed';
         } else {
             console.log('PWA Logic: deferredPrompt is null, cannot prompt.');
             alert('Install option is not yet available. Please interact with the site and reload, or use your browser install menu.');
@@ -314,7 +334,7 @@ function setupPwaInstallButton() {
     });
 
     if (deferredPrompt) {
-        installAppBtn.style.display = 'inline-flex';
+        showInstallButton();
     }
 }
 
