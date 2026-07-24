@@ -54,7 +54,7 @@ const translations = {
         'faq-a3': 'You can reach me via the contact form below or through my WhatsApp and LinkedIn.',
         'splash-subtitle': 'IT Manager & Full-Stack Developer',
         'btn-started': 'Get Started',
-        'btn-app': 'Install Portfolio App',
+        'btn-app': 'Install App',
         'loading-sys': 'Initializing Systems...'
     },
     'sw': {
