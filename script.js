@@ -54,7 +54,7 @@ const translations = {
         'faq-a3': 'You can reach me via the contact form below or through my WhatsApp and LinkedIn.',
         'splash-subtitle': 'IT Manager & Full-Stack Developer',
         'btn-started': 'Get Started',
-        'btn-app': 'Install App',
+        'btn-app': 'Install Portfolio App',
         'loading-sys': 'Initializing Systems...'
     },
     'sw': {
@@ -97,6 +97,7 @@ const translations = {
         'btn-demo': 'Omba Demo',
         'hiring-status': 'Napatikana kwa Kazi',
         'btn-cv': 'Pakua CV',
+        'btn-app': 'Sakinisha Programu',
         'stats-projects': 'Miradi Iliokamilika',
         'stats-exp': 'Miaka ya Uzoefu',
         'stats-clients': 'Wateja Wafarijiwa',
@@ -295,6 +296,9 @@ function setupPwaInstallButton() {
         return;
     }
 
+    installAppBtn.style.display = 'inline-flex';
+    installAppBtn.title = 'Install this site as an app when available.';
+
     installAppBtn.addEventListener('click', async () => {
         if (deferredPrompt) {
             console.log('PWA Logic: Prompting user to install.');
@@ -305,11 +309,12 @@ function setupPwaInstallButton() {
             installAppBtn.style.display = 'none';
         } else {
             console.log('PWA Logic: deferredPrompt is null, cannot prompt.');
+            alert('Install option is not yet available. Please interact with the site and reload, or use your browser install menu.');
         }
     });
 
     if (deferredPrompt) {
-        installAppBtn.style.display = 'inline-block';
+        installAppBtn.style.display = 'inline-flex';
     }
 }
 
